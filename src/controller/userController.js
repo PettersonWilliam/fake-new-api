@@ -10,14 +10,21 @@ module.exports = () => {
 
             return res.json(user);
         } catch(error) {
-            console.log(error);
             return res.status(500).json({
                 message: 'Não foi possível criar usuário'
             });
         }
     }
+    const login = async (req, res) => {
+        const data = pick(req.data, ['email','password']);
+
+        const token = await UserService.login(data);
+        
+        return res.json(token);
+    }
 
     return {
-        store
+        store,
+        login
     }
 };

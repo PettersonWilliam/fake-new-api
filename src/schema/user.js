@@ -7,7 +7,14 @@ const schema = {
             email: yup.string().email().required(),
             password: yup.string().min(6).required(),
         }).noUnknown()
-    }
+    },
+    login: {
+		body: yup
+		  .object({
+			email: yup.string().email().required(),
+			password: yup.string().min(6).required(),
+		  }).noUnknown()
+	  },
 };
 
 module.exports = schema;
