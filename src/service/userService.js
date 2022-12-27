@@ -26,13 +26,13 @@ module.exports = () => {
         });
 
         if(!user) {
-            throw new Error('Usuário já existe');
+            throw new Error('Usuário ou senha inválidos');
         }
 
         const isValidPassword = compareSync(data.password, user.password);
 
 		if (!isValidPassword) {
-			throw new Error('Usuário inválido');
+			throw new Error('Usuário ou senha inválidos');
 		}
 
 		return jwt.sign({

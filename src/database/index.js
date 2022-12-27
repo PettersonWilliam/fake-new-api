@@ -16,6 +16,7 @@ Sale.init(connection);
 //chama a funç~ao associate passando o model
 Product.associate(connection.models);
 Sale.associate(connection.models);
+User.associate(connection.models);
 
 // por ultimo exportamos nossa config caso queira ultilizar em outro canto
 module.exports = connection;
