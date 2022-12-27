@@ -65,7 +65,7 @@ module.exports = () => {
         return user;
     }
 
-    const update = async (filter, changes) => {
+    const update = async (changes, filter) => {
         const userEdit = await User.update(changes, {
             where: {
                 id: filter.id,

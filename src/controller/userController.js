@@ -69,6 +69,7 @@ module.exports = () => {
             return res.json(userEdit);
 
         } catch(error) {
+            console.log(error);
             return res.status(500).json({
                 message: 'Erro ao atualizar Usuário'
             })
