@@ -19,10 +19,10 @@ module.exports = () => {
     const login = async (data) => {
         const user = await User.findOne({
             where: {
-                email: data.email;
+                email: data.email
             },
             raw: true,
-            attributes: ['id','nome','email','password']
+            attributes: ['id','name','email','password']
         });
 
         if(!user) {
@@ -44,8 +44,56 @@ module.exports = () => {
 		});
     }
 
+    const index = async () => {
+        const users = await User.findAll({attributes: ['name', 'email'] });
+
+        return users;
+    }
+
+    const show = async (filter) => {
+        const user = await User.findOne({
+            where: {
+                id: filter.id,
+                deleted_at: null
+            },
+            paranoid: false
+        });
+
+        if(!user) {
+            throw new Error('Usuário não existe');
+        }
+        return user;
+    }
+
+    const update = async (filter, changes) => {
+        const userEdit = await User.update(changes, {
+            where: {
+                id: filter.id,
+                deleted_at: null
+            },
+            paranoid: false
+        });
+
+        return userEdit;
+    }
+
+    const deleteUser = async (id) => {
+        await User.destroy({
+            where: {
+                id,
+                deleted_at: null
+            },
+            paranoid: false
+        })
+        return true
+    }
+
     return {
         create,
-        login
+        login,
+        index,
+        show,
+        update,
+        deleteUser
     }
 };

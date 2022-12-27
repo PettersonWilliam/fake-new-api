@@ -1,11 +1,11 @@
-const jwt = require('jsonwebtoken');
-
 module.exports = (req, res, next) => {
+    const jwt = require('jsonwebtoken');
+
     const { authorization } = req.headers;
 
     if (!authorization) {
         return res.status(401).json({
-            errors: ['Login required'],
+            errors: ['Login obrigatorio'],
         });
     }
 
@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
         next();
     } catch (e) {
         return res.status(401).json({
-            errors: ['Expired or invalid token'],
+            errors: ['Token inspirado ou inválido'],
         });
     }
 };
