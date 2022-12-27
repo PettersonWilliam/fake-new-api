@@ -8,12 +8,6 @@ const schema = {
         price: yup.number().required()
         }).noUnknown()
     },
-    index: {
-		params: yup
-			.object({
-				id: yup.number().required().min(1),
-		  	}).noUnknown()
-	  },
       show: {
 		params: yup.object({
 				id: yup.number().required().min(1),

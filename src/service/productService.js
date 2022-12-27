@@ -21,12 +21,8 @@ module.exports = () => {
     }
 
 
-    const index = async (filter) => {
+    const index = async () => {
         const products = await Product.findAll({ attributes: ['id','name', 'price'] });
-
-        if(!products) {
-            throw new Error('O Produto não existe');
-        }
 
         return products;
     }

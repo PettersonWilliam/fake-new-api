@@ -14,4 +14,4 @@ app.use(userRoutes);//inicializando o express com a rotas de user
 app.use(productRoutes);//inicializando o express com a rotas de product
 app.use(saleRoutes);//inicializando o express com a rotas de sale
 
-app.listen(3001);//ela executa e escuta na porta indicada 
+app.listen(3001);//ele inicia a aplicação na porta ... neste caso 3001

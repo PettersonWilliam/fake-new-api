@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize'); // importando o sequelize 
 const dbConfig = require('../config/database'); // importando a config do database 
 
+// import dos models
 const User = require('../models/User');
 const Product = require('../models/Product');
 const Sale = require('../models/Sale');

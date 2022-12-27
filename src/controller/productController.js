@@ -21,8 +21,6 @@ const store = async (req, res) => {
 
 const index = async (req, res) => { 
     try {
-        const filter = pick(req.filter, ['id']);
-
         const products = await ProductService.index(filter);
 
         return res.json(products);
@@ -74,7 +72,6 @@ const remove = async (req, res) => {
         return res.json(product);
 
     } catch(error) {
-        console.log(error);
         return res.status(500).json({
             message: 'Erro ao deletar Produto'
         })

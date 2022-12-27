@@ -19,7 +19,6 @@ class User extends Model {
             sequelize,
             paranoid: true,
             timestamps: true,
-            sequelize: sequelize,
             createdAt: "created_at",
             updatedAt: "updated_at",
             deletedAt: "deleted_at",
@@ -35,6 +34,7 @@ class User extends Model {
     }
     static associate(models) {
         this.hasMany(models.Product, { foreignKey: "user_id" });
+        //hasMany tem muitos produtos
     }
 }
 
