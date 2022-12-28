@@ -69,7 +69,6 @@ module.exports = () => {
             return res.json(userEdit);
 
         } catch(error) {
-            console.log(error);
             return res.status(500).json({
                 message: 'Erro ao atualizar Usuário'
             })
@@ -85,7 +84,6 @@ module.exports = () => {
             return res.json(user);
 
         } catch(error) {
-            console.log(error);
             return res.status(500).json({
                 message: 'Erro ao deletar Usuário'
             })
